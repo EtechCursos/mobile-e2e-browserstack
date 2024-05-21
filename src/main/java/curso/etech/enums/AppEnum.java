@@ -24,6 +24,21 @@ public enum AppEnum implements AppInt {
             capabilities.setCapability("autoGrantPermissions", "true");
             return new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         }
+    },
+
+    ANDROID_FARM("ANDROID_FARM") {
+        @Override
+        public AndroidDriver getDriver() throws MalformedURLException {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("os_version", "13.0");
+            capabilities.setCapability("device", "Samsung Galaxy S23");
+            capabilities.setCapability("app", "bs://7c87e7551c81dc522420a472c4c6889137dd0c28");
+            capabilities.setCapability("project", "E2E Mobile");
+            capabilities.setCapability("build", "E2E Mobile ");
+            capabilities.setCapability("deviceName", "Device farm E.Tech");
+            capabilities.setCapability("name", "E2E E.Tech");
+            return new AndroidDriver(new URL("https://etechmentoria1:BcMQk3BJ7g8thgX45qM3@hub-cloud.browserstack.com/wd/hub"), capabilities);
+        }
     };
 
     AppEnum(String type){}
